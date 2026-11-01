@@ -79,3 +79,26 @@ animatedCards.forEach((card, index) => {
   card.style.transitionDelay = `${(index % 5) * 120}ms`;
 
 });
+// Animación progresiva al desplazarse
+const revealElements = document.querySelectorAll(
+  "main section, .service-card, .steps > div"
+);
+
+revealElements.forEach(element => {
+  element.classList.add("reveal");
+});
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+revealElements.forEach(element => {
+  revealObserver.observe(element);
+});
