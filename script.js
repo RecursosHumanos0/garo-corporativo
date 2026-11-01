@@ -44,10 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach(element => observer.observe(element));
 
-  // ENTRADA ESCALONADA
-  document.querySelectorAll(".service-card, .steps > div")
-    .forEach((element, index) => {
-      element.style.transitionDelay = `${index * 120}ms`;
-    });
-
-});
+  
