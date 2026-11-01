@@ -1,38 +1,36 @@
-// ========================================
-// MENÚ DE NAVEGACIÓN MÓVIL
-// ========================================
+document.addEventListener("DOMContentLoaded", () => {
 
-const menuToggle = document.getElementById("menuToggle");
-const navigation = document.getElementById("navigation");
+  // MENÚ MÓVIL
+  const menuToggle = document.getElementById("menuToggle");
+  const navigation = document.getElementById("navigation");
 
-if (menuToggle && navigation) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navigation.classList.toggle("active");
-
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    menuToggle.textContent = isOpen ? "✕" : "☰";
-  });
-
-  navigation.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navigation.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.textContent = "☰";
+  if (menuToggle && navigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "✕" : "☰";
     });
-  });
-}
 
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+  }
 
-// ========================================
-// ANIMACIONES AL DESPLAZARSE
-// ========================================
+  // ANIMACIONES AL DESPLAZARSE
+  const elements = document.querySelectorAll(
+    ".about, .divisions, .methodology, .contact, .service-card, .steps > div"
+  );
 
-const animatedElements = document.querySelectorAll(
-  "main section, .service-card, .steps > div"
-);
+  if (!("IntersectionObserver" in window)) {
+    elements.forEach(element => element.classList.add("visible"));
+    return;
+  }
 
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
@@ -40,25 +38,16 @@ if ("IntersectionObserver" in window) {
       }
     });
   }, {
-    threshold: 0.12
+    threshold: 0.08,
+    rootMargin: "0px 0px -30px 0px"
   });
 
-  animatedElements.forEach(element => {
-    observer.observe(element);
-  });
+  elements.forEach(element => observer.observe(element));
 
-} else {
-  animatedElements.forEach(element => {
-    element.classList.add("visible");
-  });
-}
+  // ENTRADA ESCALONADA
+  document.querySelectorAll(".service-card, .steps > div")
+    .forEach((element, index) => {
+      element.style.transitionDelay = `${index * 120}ms`;
+    });
 
-
-// ========================================
-// APARICIÓN ESCALONADA
-// ========================================
-
-document.querySelectorAll(".service-card, .steps > div")
-  .forEach((element, index) => {
-    element.style.transitionDelay = `${(index % 5) * 120}ms`;
-  });
+});
