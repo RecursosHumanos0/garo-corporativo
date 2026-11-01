@@ -18,38 +18,41 @@ body {
   color: var(--graphite);
   background: var(--white);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
-.header {
+/* ENCABEZADO */
+
+header {
   min-height: 85px;
   padding: 15px 7%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
+  background: rgba(255, 255, 255, 0.97);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   box-shadow: 0 2px 15px #0F2D4A12;
+  backdrop-filter: blur(12px);
+  transition: box-shadow .3s ease;
 }
 
 .brand {
   color: var(--navy);
   text-decoration: none;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1.2;
 }
 
-.brand-name {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 5px;
-}
-
-.brand-subtitle {
-  font-size: 11px;
-  letter-spacing: 5px;
+.brand-logo {
+  display: block;
+  width: 120px;
+  max-width: 120px;
+  height: 50px;
+  max-height: 50px;
+  object-fit: contain;
 }
 
 .navigation {
@@ -62,10 +65,27 @@ body {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
+  position: relative;
+  transition: color .3s ease;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--copper);
+  transition: width .3s ease;
 }
 
 .navigation a:hover {
   color: var(--copper);
+}
+
+.navigation a:hover::after {
+  width: 100%;
 }
 
 .menu-toggle {
@@ -74,7 +94,10 @@ body {
   background: none;
   color: var(--navy);
   font-size: 27px;
+  cursor: pointer;
 }
+
+/* PORTADA */
 
 .hero {
   min-height: 570px;
@@ -85,6 +108,7 @@ body {
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  position: relative;
 }
 
 .hero-content {
@@ -120,6 +144,7 @@ body {
   font-size: 320px;
   font-weight: bold;
   color: #FFFFFF12;
+  animation: floatSymbol 6s ease-in-out infinite;
 }
 
 .button {
@@ -130,20 +155,24 @@ body {
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
-  transition: .3s;
+  transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
 }
 
 .button:hover {
   background: #A96137;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px #00000025;
 }
+
+/* SECCIONES */
 
 .section {
   padding: 85px 8%;
   text-align: center;
 }
 
-.section h2, .contact h2 {
+.section h2,
+.contact h2 {
   color: var(--navy);
   font-size: clamp(28px, 4vw, 42px);
   margin: 15px 0;
@@ -158,6 +187,8 @@ body {
   background: #EDF0F3;
 }
 
+/* DIVISIONES GARO */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -170,18 +201,54 @@ body {
   padding: 30px 22px;
   text-align: left;
   border-bottom: 3px solid var(--copper);
-  border-radius: 5px;
-  transition: .3s;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px #0F2D4A08;
+  transition: transform .35s ease, box-shadow .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--navy);
+  transition: width .35s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 30px #0F2D4A18;
+  transform: translateY(-9px);
+  box-shadow: 0 15px 35px #0F2D4A18;
+}
+
+.service-card:hover::before {
+  width: 100%;
 }
 
 .service-card span {
   color: var(--copper);
   font-weight: bold;
+}
+
+.card-emoji {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EDF2F6;
+  border-radius: 16px;
+  font-size: 32px;
+  margin: 15px 0;
+  transition: transform .35s ease, background .35s ease;
+}
+
+.service-card:hover .card-emoji {
+  transform: scale(1.12) rotate(-5deg);
+  background: #F7EDE6;
 }
 
 .service-card h3 {
@@ -194,6 +261,8 @@ body {
   font-size: 14px;
 }
 
+/* METODOLOGÍA */
+
 .steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -201,15 +270,41 @@ body {
   margin-top: 45px;
 }
 
+.steps > div {
+  padding: 25px 12px;
+  background: white;
+  border-radius: 10px;
+  border-bottom: 3px solid var(--copper);
+  box-shadow: 0 5px 20px #0F2D4A0D;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.steps > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px #0F2D4A18;
+}
+
 .steps b {
   color: var(--copper);
   font-size: 28px;
+}
+
+.step-emoji {
+  font-size: 34px;
+  margin: 12px 0;
+  transition: transform .35s ease;
+}
+
+.steps > div:hover .step-emoji {
+  transform: scale(1.2);
 }
 
 .steps h3 {
   color: var(--navy);
   font-size: 16px;
 }
+
+/* CONTACTO */
 
 .contact {
   background: var(--navy);
@@ -225,6 +320,8 @@ body {
 .contact p {
   margin-bottom: 25px;
 }
+
+/* PIE DE PÁGINA */
 
 footer {
   background: #091E32;
@@ -244,9 +341,42 @@ footer small {
   color: var(--gray);
 }
 
+/* ANIMACIONES DE DESPLAZAMIENTO */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ANIMACIÓN FLOTANTE */
+
+@keyframes floatSymbol {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* DISPOSITIVOS MÓVILES */
+
 @media (max-width: 768px) {
-  .header {
+  header {
     padding: 15px 6%;
+  }
+
+  .brand-logo {
+    width: 120px;
+    height: 45px;
   }
 
   .menu-toggle {
@@ -256,13 +386,14 @@ footer small {
   .navigation {
     display: none;
     position: absolute;
-    top: 75px;
+    top: 100%;
     left: 0;
     width: 100%;
     background: white;
     flex-direction: column;
     padding: 25px 7%;
     gap: 18px;
+    box-shadow: 0 10px 20px #0F2D4A12;
   }
 
   .navigation.active {
@@ -282,30 +413,33 @@ footer small {
     padding: 65px 7%;
   }
 
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-.brand-logo {
-  width: 150px;
-  max-width: 100%;
-  height: 55px;
-  object-fit: contain;
-  display: block;
-}
 
-@media (max-width: 768px) {
-  .brand-logo {
-    width: 120px;
-    height: 45px;
+  .steps > div:last-child {
+    grid-column: 1 / -1;
   }
 }
-.brand img,
-.brand-logo {
-  display: block !important;
-  width: 120px !important;
-  max-width: 120px !important;
-  height: 50px !important;
-  max-height: 50px !important;
-  object-fit: contain !important;
+
+/* ACCESIBILIDAD: REDUCIR MOVIMIENTO */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
 }
