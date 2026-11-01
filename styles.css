@@ -356,3 +356,39 @@ main section * {
     grid-column: 1 / -1;
   }
 }
+/* ANIMACIÓN ELEGANTE GARO */
+
+.about,
+.divisions,
+.methodology,
+.contact,
+.service-card,
+.steps > div {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(3px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about,
+  .divisions,
+  .methodology,
+  .contact,
+  .service-card,
+  .steps > div {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
