@@ -456,3 +456,29 @@ footer small {
     transform: none;
   }
 }
+/* RECUPERACIÓN DE CONTENIDO: GARO */
+
+main {
+  display: block !important;
+  visibility: visible !important;
+}
+
+main section,
+main section * {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.hero {
+  display: flex !important;
+}
+
+.cards {
+  display: grid !important;
+}
+
+.steps {
+  display: grid !important;
+}
