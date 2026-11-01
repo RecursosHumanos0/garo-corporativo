@@ -11,11 +11,12 @@
 
 <body>
 
-<a href="#inicio" class="brand">
-  <img src="logo-garo.png.jpg"
-       alt="GARO Corporativo"
-       class="brand-logo">
-</a>
+  <header>
+    <a href="#inicio" class="brand">
+      <img src="logo-garo.png.jpg"
+           alt="GARO Corporativo"
+           class="brand-logo">
+    </a>
 
     <button class="menu-toggle" id="menuToggle"
       aria-label="Abrir menú" aria-expanded="false">
@@ -32,7 +33,7 @@
   </header>
 
   <main>
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio" data-animate>
       <div class="hero-content">
         <span class="eyebrow">CONSULTORÍA ORGANIZACIONAL</span>
         <h1>Personas que construyen <span>organizaciones.</span></h1>
@@ -48,7 +49,7 @@
       <div class="hero-symbol">G</div>
     </section>
 
-    <section class="section about" id="nosotros">
+    <section class="section about" id="nosotros" data-animate>
       <span class="eyebrow">QUIÉNES SOMOS</span>
       <h2>El talento impulsa. La estrategia transforma.</h2>
       <p>
@@ -58,56 +59,86 @@
       </p>
     </section>
 
-    <section class="section divisions" id="divisiones">
+    <section class="section divisions" id="divisiones" data-animate>
       <span class="eyebrow">NUESTRAS UNIDADES DE NEGOCIO</span>
       <h2>Soluciones para cada organización</h2>
 
       <div class="cards">
-        <article class="service-card">
+        <article class="service-card" data-animate>
           <span>01</span>
+          <div class="card-emoji" aria-hidden="true">🧲</div>
           <h3>GARO TALENT</h3>
           <p>Atracción, selección y gestión del talento humano.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-animate>
           <span>02</span>
+          <div class="card-emoji" aria-hidden="true">📈</div>
           <h3>GARO DEVELOPMENT</h3>
           <p>Desarrollo organizacional, cultura y liderazgo.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-animate>
           <span>03</span>
+          <div class="card-emoji" aria-hidden="true">🎓</div>
           <h3>GARO ACADEMY</h3>
           <p>Capacitación, formación y desarrollo de competencias.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-animate>
           <span>04</span>
+          <div class="card-emoji" aria-hidden="true">🌿</div>
           <h3>GARO WELLBEING</h3>
           <p>Bienestar organizacional y prevención de riesgos psicosociales.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card" data-animate>
           <span>05</span>
+          <div class="card-emoji" aria-hidden="true">🏢</div>
           <h3>GARO CONSULTING</h3>
           <p>Consultoría empresarial, procesos y estrategias.</p>
         </article>
       </div>
     </section>
 
-    <section class="section methodology" id="metodologia">
+    <section class="section methodology" id="metodologia" data-animate>
       <span class="eyebrow">METODOLOGÍA GARO</span>
       <h2>Un método para evolucionar</h2>
+
       <div class="steps">
-        <div><b>01</b><h3>Conocer</h3></div>
-        <div><b>02</b><h3>Analizar</h3></div>
-        <div><b>03</b><h3>Diseñar</h3></div>
-        <div><b>04</b><h3>Implementar</h3></div>
-        <div><b>05</b><h3>Evolucionar</h3></div>
+        <div data-animate>
+          <b>01</b>
+          <div class="step-emoji" aria-hidden="true">🔎</div>
+          <h3>Conocer</h3>
+        </div>
+
+        <div data-animate>
+          <b>02</b>
+          <div class="step-emoji" aria-hidden="true">📊</div>
+          <h3>Analizar</h3>
+        </div>
+
+        <div data-animate>
+          <b>03</b>
+          <div class="step-emoji" aria-hidden="true">💡</div>
+          <h3>Diseñar</h3>
+        </div>
+
+        <div data-animate>
+          <b>04</b>
+          <div class="step-emoji" aria-hidden="true">⚙️</div>
+          <h3>Implementar</h3>
+        </div>
+
+        <div data-animate>
+          <b>05</b>
+          <div class="step-emoji" aria-hidden="true">🚀</div>
+          <h3>Evolucionar</h3>
+        </div>
       </div>
     </section>
 
-    <section class="contact" id="contacto">
+    <section class="contact" id="contacto" data-animate>
       <span class="eyebrow">INICIEMOS UNA CONVERSACIÓN</span>
       <h2>Construyamos organizaciones más sólidas.</h2>
       <p>Personas que construyen organizaciones.</p>
