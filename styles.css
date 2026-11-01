@@ -1,0 +1,288 @@
+:root {
+  --navy: #0F2D4A;
+  --copper: #C17A4A;
+  --graphite: #3E3E3E;
+  --gray: #D9DDE2;
+  --white: #F8F8F8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--graphite);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+.header {
+  min-height: 85px;
+  padding: 15px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 15px #0F2D4A12;
+}
+
+.brand {
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  letter-spacing: 5px;
+}
+
+.navigation {
+  display: flex;
+  gap: 28px;
+}
+
+.navigation a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navigation a:hover {
+  color: var(--copper);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  color: var(--navy);
+  font-size: 27px;
+}
+
+.hero {
+  min-height: 570px;
+  padding: 90px 9%;
+  background: linear-gradient(115deg, var(--navy), #173D5E);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--copper);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.15;
+  margin: 22px 0;
+}
+
+.hero h1 span {
+  color: #D89B70;
+}
+
+.hero p {
+  max-width: 560px;
+  color: #E1E7ED;
+  margin-bottom: 30px;
+}
+
+.hero-symbol {
+  font-size: 320px;
+  font-weight: bold;
+  color: #FFFFFF12;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 24px;
+  background: var(--copper);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: .3s;
+}
+
+.button:hover {
+  background: #A96137;
+  transform: translateY(-3px);
+}
+
+.section {
+  padding: 85px 8%;
+  text-align: center;
+}
+
+.section h2, .contact h2 {
+  color: var(--navy);
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 15px 0;
+}
+
+.about p {
+  max-width: 750px;
+  margin: 15px auto;
+}
+
+.divisions {
+  background: #EDF0F3;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px 22px;
+  text-align: left;
+  border-bottom: 3px solid var(--copper);
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px #0F2D4A18;
+}
+
+.service-card span {
+  color: var(--copper);
+  font-weight: bold;
+}
+
+.service-card h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.service-card p {
+  font-size: 14px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.steps b {
+  color: var(--copper);
+  font-size: 28px;
+}
+
+.steps h3 {
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.contact {
+  background: var(--navy);
+  color: white;
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.contact h2 {
+  color: white;
+}
+
+.contact p {
+  margin-bottom: 25px;
+}
+
+footer {
+  background: #091E32;
+  color: white;
+  padding: 35px 7%;
+  text-align: center;
+  font-size: 13px;
+}
+
+footer strong {
+  letter-spacing: 4px;
+}
+
+footer small {
+  display: block;
+  margin-top: 15px;
+  color: var(--gray);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 6%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 25px 7%;
+    gap: 18px;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 75px 7%;
+  }
+
+  .hero-symbol {
+    display: none;
+  }
+
+  .section {
+    padding: 65px 7%;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
