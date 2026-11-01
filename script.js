@@ -24,30 +24,23 @@ if (menuToggle && navigation) {
 
 
 // ========================================
-// ANIMACIONES AL DESPLAZARSE POR LA PÁGINA
+// ANIMACIONES AL DESPLAZARSE
 // ========================================
 
-const animatedElements = document.querySelectorAll("[data-animate]");
+const animatedElements = document.querySelectorAll(
+  "main section, .service-card, .steps > div"
+);
 
 if ("IntersectionObserver" in window) {
-
   const observer = new IntersectionObserver((entries, observer) => {
-
     entries.forEach(entry => {
-
       if (entry.isIntersecting) {
-
         entry.target.classList.add("visible");
-
         observer.unobserve(entry.target);
-
       }
-
     });
-
   }, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -40px 0px"
+    threshold: 0.12
   });
 
   animatedElements.forEach(element => {
@@ -55,43 +48,17 @@ if ("IntersectionObserver" in window) {
   });
 
 } else {
-
-  // Compatibilidad con navegadores antiguos
-
   animatedElements.forEach(element => {
     element.classList.add("visible");
   });
-
 }
 
 
 // ========================================
-// APARICIÓN ESCALONADA DE LAS DIVISIONES
-// Y ETAPAS DE LA METODOLOGÍA
+// APARICIÓN ESCALONADA
 // ========================================
 
-const animatedCards = document.querySelectorAll(
-  ".service-card, .steps > div"
-);
-
-animatedCards.forEach((card, index) => {
-
-  card.style.transitionDelay = `${(index % 5) * 120}ms`;
-
-});
-
-
-const revealObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
+document.querySelectorAll(".service-card, .steps > div")
+  .forEach((element, index) => {
+    element.style.transitionDelay = `${(index % 5) * 120}ms`;
   });
-}, {
-  threshold: 0.12
-});
-
-revealElements.forEach(element => {
-  revealObserver.observe(element);
-});
