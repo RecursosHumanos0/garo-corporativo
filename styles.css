@@ -300,3 +300,12 @@ footer small {
     height: 45px;
   }
 }
+.brand img,
+.brand-logo {
+  display: block !important;
+  width: 120px !important;
+  max-width: 120px !important;
+  height: 50px !important;
+  max-height: 50px !important;
+  object-fit: contain !important;
+}
